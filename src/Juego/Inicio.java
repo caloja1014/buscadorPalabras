@@ -85,7 +85,7 @@ public class Inicio {
      */
     public void empezar() {
         if (validarUsuario(txtusuario)) {
-            for (Jugador j : ArmaPalabras.jugadores) {
+            for (Jugador j : ArmaTuPalabraP.jugadores) {
                 if (txtusuario.getText().equalsIgnoreCase(j.getUsuario())) {
                     player = j;
                 }
@@ -100,6 +100,22 @@ public class Inicio {
         } else {
             registrar();
         }
+    }
+    
+    /**
+     * metodo que retorna un boolean dependiendo de la validez de tus datos
+     * y te ordena registrarte en el caso de que no lo estes
+     * @param texto
+     * @return 
+     */
+    public boolean validarUsuario(TextField texto) {
+        for (Jugador j : ArmaTuPalabraP.jugadores) {
+            if (texto.getText().equalsIgnoreCase(j.getUsuario())) {
+                player=j;
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
