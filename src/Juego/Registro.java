@@ -37,7 +37,8 @@ public class Registro {
      */
     public Registro(){
         organizarElementos();
-        registro.setOnAction(e->validarCampos());
+        //registro.setOnAction(e->validarCampos());
+        
     }
     
     /**
