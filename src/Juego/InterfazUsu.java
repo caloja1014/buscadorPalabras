@@ -400,7 +400,7 @@ public class InterfazUsu {
      */
     public void salir(){
         Inicio.player.setPuntaje(puntajeActual);
-        ArmaPalabras.jg.Serializar();
+        ArmaTuPalabraP.jg.Serializar();
         Platform.exit();
     }
 
