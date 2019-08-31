@@ -119,6 +119,15 @@ public class Inicio {
     }
 
     /**
+     * metodo que abre una ventana en el caso de que no te encuentres registrado 
+     */
+    public void registrar(){
+        Scene sc3=new Scene(rg.getRoot3());
+        reg.setScene(sc3);
+        reg.show();
+    }
+    
+    /**
      *
      * @return getter que retorna el rut que se presentara por pantalla
      */
