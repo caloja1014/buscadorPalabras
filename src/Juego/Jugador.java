@@ -53,7 +53,7 @@ public class Jugador implements Serializable{
      */
     public void Serializar(){
         try(ObjectOutputStream ob=new ObjectOutputStream(new FileOutputStream("src/archivos/jugadores.dat"))){
-            ob.writeObject(ArmaTuPalabraP.jugadores);
+            ob.writeObject(ArmaPalabras.jugadores);
         }
         catch(FileNotFoundException ex){
             System.out.println(ex);
@@ -71,7 +71,7 @@ public class Jugador implements Serializable{
      */
     public void Desearilizar(){
         try(ObjectInputStream ob=new ObjectInputStream(new FileInputStream("src/archivos/jugadores.dat"))){
-            ArmaTuPalabraP.jugadores=(ArrayList<Jugador>)ob.readObject();
+            ArmaPalabras.jugadores=(ArrayList<Jugador>)ob.readObject();
         }
         catch(FileNotFoundException ex){
             System.out.println(ex);
