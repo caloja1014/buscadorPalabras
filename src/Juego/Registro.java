@@ -54,6 +54,25 @@ public class Registro {
     }
     
     /**
+     * metodo que se asegura que esten completos todos los campos antes de registrar a alguien
+     */
+    public void validarCampos(){
+        confirmaruser.setText("");
+        if(txtuser.getText()==null && txtpassword.getText()==null){
+            verificacionCampos.setStyle("-fx-background-color:red");
+        }
+        if(ini.validarUsuario(txtuser)){
+            confirmaruser.setText("Usuario ya existente, intente de nuevo");
+            txtuser.clear();
+        }
+        else{
+            Jugador jug=new Jugador(txtuser.getText(),txtpassword.getText());
+            ArmaTuPalabraP.jugadores.add(jug);
+            System.out.println("Listo");
+            Inicio.reg.close();
+        }
+    }
+    /**
      * getter que devuelve el root que debe ser presentado 
      * @return 
      */

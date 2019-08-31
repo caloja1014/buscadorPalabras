@@ -344,18 +344,18 @@ public class InterfazUsu {
         level.setPadding(new Insets(50));
         score.setPadding(new Insets(50));
         time.setPadding(new Insets(50));
-        txtLevel.setFont(new Font("Arial", 20));
-        actualizacionLevel.setFont(new Font("Arial", 20));
-        txtScore.setFont(new Font("Arial", 20));
-        bono.setFont(new Font("Arial", 20));
-        pena.setFont(new Font("Arial", 20));
+        txtLevel.setFont(new Font(ParametrosJuego.tipoLetra, 20));
+        actualizacionLevel.setFont(new Font(ParametrosJuego.tipoLetra, 20));
+        txtScore.setFont(new Font(ParametrosJuego.tipoLetra, 20));
+        bono.setFont(new Font(ParametrosJuego.tipoLetra, 20));
+        pena.setFont(new Font(ParametrosJuego.tipoLetra, 20));
         //actualizacionScore.setText(Integer.toString(Inicio.player.getPuntaje()));
-        actualizacionScore.setFont(new Font("Arial", 20));
-        txtTime.setFont(new Font("Arial", 20));
-        actualizacionTime.setFont(new Font("Arial", 20));
-        enviar.setFont(new Font("Arial", 20));
+        actualizacionScore.setFont(new Font(ParametrosJuego.tipoLetra, 20));
+        txtTime.setFont(new Font(ParametrosJuego.tipoLetra, 20));
+        actualizacionTime.setFont(new Font(ParametrosJuego.tipoLetra, 20));
+        enviar.setFont(new Font(ParametrosJuego.tipoLetra, 20));
         enviar.setPadding(new Insets(25));
-        salir.setFont(new Font("Arial", 20));
+        salir.setFont(new Font(ParametrosJuego.tipoLetra, 20));
         salir.setPadding(new Insets(25));
         level.getChildren().addAll(txtLevel, actualizacionLevel);
         score.getChildren().addAll(txtScore, actualizacionScore, bono, pena);
@@ -400,7 +400,7 @@ public class InterfazUsu {
      */
     public void salir(){
         Inicio.player.setPuntaje(puntajeActual);
-        ArmaPalabras.jg.Serializar();
+        ArmaTuPalabraP.jg.Serializar();
         Platform.exit();
     }
 
