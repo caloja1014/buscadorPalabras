@@ -25,6 +25,9 @@ import javafx.stage.Stage;
  */
 public class Inicio {
 
+    /**
+     * elementos de nuestra interfaz de inicio
+     */
     private HBox root = new HBox(20);
     private ImageView imagen = new ImageView(new Image("/imagenes/abeja.jpg"));
     private VBox inicio = new VBox(20);
@@ -52,7 +55,7 @@ public class Inicio {
         empieza.setOnAction(e -> empezar());
         registro.setOnAction(e -> registrar());
     }
-    
+
     /**
      * metodo que organiza los elementos de nuestra interfaz
      */
@@ -62,17 +65,46 @@ public class Inicio {
         imagen.setFitWidth(350);
         datos.getChildren().addAll(usuario, txtusuario);
         datos.setAlignment(Pos.CENTER);
-        datos2.getChildren().addAll(contrasena,txtcontrasena);
+        datos2.getChildren().addAll(contrasena, txtcontrasena);
         datos2.setAlignment(Pos.CENTER);
-        inicio.getChildren().addAll(datos, datos2,new Label("Idiomas"),idiomas, registro, empieza);
+        inicio.getChildren().addAll(datos, datos2, new Label("Idiomas"), idiomas, registro, empieza);
         inicio.setAlignment(Pos.CENTER);
         root.getChildren().addAll(imagen, inicio);
         root.setAlignment(Pos.CENTER);
     }
-    
+
     /**
-     * 
-     * @return getter que retorna el rut que se presentara por pantalla 
+     * metodo para llenar el combobox que mostrara llos idimas
+     */
+    public void llenarComboBox() {
+        idiomas.getItems().addAll(Data.data.idiomas);
+    }
+
+    /**
+     * metodo del boton empezar que inicia el juego una vez verificado tus datos
+     */
+    public void empezar() {
+        if (validarUsuario(txtusuario)) {
+            for (Jugador j : ArmaPalabras.jugadores) {
+                if (txtusuario.getText().equalsIgnoreCase(j.getUsuario())) {
+                    player = j;
+                }
+            }
+            InterfazUsu iu = new InterfazUsu();
+            empez = true;
+            ArmaTuPalabraP.principal.hide();
+            Stage s = new Stage();
+            Scene sc2 = new Scene(iu.getRoot2());
+            s.setScene(sc2);
+            s.show();
+        } else {
+            registrar();
+        }
+    }
+
+    /**
+     *
+     * @return getter que retorna el rut que se presentara por pantalla
      */
     public HBox getRoot() {
         return root;
